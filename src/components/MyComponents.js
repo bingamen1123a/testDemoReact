@@ -7,27 +7,31 @@ import React from "react"; // IMPORT React
 class MyComponents extends React.Component {
 
     state = {
-        name: 'Nguyen Phuoc Hai',
+        name: 'Nguyen Hai',
         age: 22,
         address: 'Hcm'
     };
-
-    handelClick(event) {
+    // neu khong chuyen ve arrow function se bao loi do js '() => {}'
+    handelClick = (event) => {
         console.log(" You click me ")
+        console.log('My name is:', this.state.name)
         console.log(event)
+        // cap nhat lai ten va tuoi tu state
+        this.setState({
+            name: 'Le Phu',
+            age: Math.floor((Math.random() * 100) + 1)
+        })
+
     }
-    handelOnMoverOver(event) {
-        console.log(event)
-        console.log('My name is: ', this.state.name)
-    }
-    // JSX
+
+    // JSX  
     render() {
         return (
             <div>
-                My name is {this.state.name} and I am from {this.state.address}
-                <button onClick={this.handelClick}>Click me</button>
+                My name is {this.state.name} and I'm {this.state.age} years old, I'm from {this.state.address}
+                <button onClick={(event) => { this.handelClick(event) }}>Click me</button>
                 <button onMouseOver={this.handelClick}> Hover click me</button>
-            </div>
+            </div >
         );
 
     }
