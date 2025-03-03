@@ -24,6 +24,17 @@ class MyComponents extends React.Component {
 
     }
 
+    handleOnChaneInput = (event) => {
+        this.setState({
+            name: event.target.value
+        })
+    }
+
+    handleOnSubmit = (event) => {
+        event.preventDefault(); // nhan submit se khong load loai trang
+        console.log(this.state)
+    }
+
     // JSX  
     render() {
         return (
@@ -31,6 +42,10 @@ class MyComponents extends React.Component {
                 My name is {this.state.name} and I'm {this.state.age} years old, I'm from {this.state.address}
                 <button onClick={(event) => { this.handelClick(event) }}>Click me</button>
                 <button onMouseOver={this.handelClick}> Hover click me</button>
+                <form onSubmit={(event) => { this.handleOnSubmit(event) }}>
+                    <input type="text" onChange={(event) => { this.handleOnChaneInput(event) }} />
+                    <button>Submit</button>
+                </form>
             </div >
         );
 
