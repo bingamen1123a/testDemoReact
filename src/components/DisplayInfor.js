@@ -1,18 +1,26 @@
 import React from "react";
 
-class DisplayInfo extends React.Component {
+class UserInfor extends React.Component {
+    // props => Viet tat cua propeties(tai san)
     render() {
-        // props -> viet tat cua properties de thua ke lai thuoc tinh tu cha va goi su dung
-        //destructuring array/subject -> giup gian luoc code thay vi phai this.value. thi chi can gan
-        const { age, name } = this.props;
-        console.log(this.props)
+        console.log(this.props.listUser)
+        // destructuring object/array => giup gian luoc code
+        // user listUser.map() de lap lai cac user
+        const { listUser } = this.props;
         return (
             <div>
-                <div>My name's {name}</div>
-                <div>I'm {this.props.age} years old</div>
+                {listUser.map((user) => {
+                    return (
+                        <div key={user.id}>
+                            <div>My name's: {user.name}</div>
+                            <div>Age: {user.age}</div>
+                            <hr />
+                        </div>
+                    )
+                })}
             </div>
         )
     }
 }
 
-export default DisplayInfo;
+export default UserInfor;
