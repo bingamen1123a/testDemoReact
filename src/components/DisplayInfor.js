@@ -20,8 +20,6 @@ class UserInfor extends React.Component {
                 <div>
                     <button onClick={() => { this.handleShowHide() }}>{this.state.displayShow === true ? 'Hide' : 'Show'} list user:</button>
                 </div>
-
-
                 {this.state.displayShow &&
                     <div>
                         {listUser.map((user) => {
