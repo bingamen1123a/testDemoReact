@@ -44,7 +44,7 @@ class AddUserInfor extends React.Component {
     }
     render() {
         return (
-            <div>
+            <>
                 My name is {this.state.name} and I'm {this.state.age} years old, I'm from {this.state.address}
                 <button onClick={(event) => { this.handelClick(event) }}>Click me</button>
                 <button onMouseOver={this.handelClick}> Hover click me</button>
@@ -57,7 +57,7 @@ class AddUserInfor extends React.Component {
                     <input value={this.state.age} type="text" onChange={(event) => { this.handleOnChaneInputAge(event) }} />
                     <button>Submit</button>
                 </form>
-            </div>
+            </>
         )
     }
 }

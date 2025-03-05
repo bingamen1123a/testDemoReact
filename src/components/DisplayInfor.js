@@ -19,7 +19,7 @@ class UserInfor extends React.Component {
         // user listUser.map() de lap lai cac user
         const { listUser } = this.props;
         return (
-            <div>
+            <>
                 <div>
                     <button onClick={() => { this.handleShowHide() }}>{this.state.displayShow === true ? 'Hide' : 'Show'} list user:</button>
                 </div>
@@ -32,12 +32,13 @@ class UserInfor extends React.Component {
                                     <div>My name's: {user.name}</div>
                                     <div>Age: {user.age}</div>
                                     <hr />
+                                    <button onClick={() => { this.props.handelDeleteUser(user.id) }}>Delete</button>
                                 </div>
                             )
                         })}
                     </div>
                 }
-            </div>
+            </>
 
         )
     }

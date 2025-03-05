@@ -20,6 +20,11 @@ class MyComponents extends React.Component {
             listUser: [obuser, ...this.state.listUser]
         })
     }
+    handelDeleteUser = (userId) => {
+        this.setState({
+            listUser: [...this.state.listUser.filter(item => item.id !== userId)] // copy lai array va loc lai theo dieu kien
+        })
+    }
     // JSX  
     // props chi truyen duoc strinh con cac thong so khac chi co the truyen thong qua {}
     render() {
@@ -27,7 +32,9 @@ class MyComponents extends React.Component {
             <div>
                 <AddUserInfor handelAddNewUser={this.handelAddNewUser} />
                 <br></br>
-                <DisplayInfo listUser={this.state.listUser}
+                <DisplayInfo
+                    listUser={this.state.listUser}
+                    handelDeleteUser={this.handelDeleteUser}
                 />
             </div >
         );
