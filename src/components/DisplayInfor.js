@@ -1,4 +1,5 @@
 import React from "react";
+import './DisplayInfo.scss';
 
 class UserInfor extends React.Component {
     // props => Viet tat cua propeties(tai san)
@@ -21,11 +22,11 @@ class UserInfor extends React.Component {
                     <button onClick={() => { this.handleShowHide() }}>{this.state.displayShow === true ? 'Hide' : 'Show'} list user:</button>
                 </div>
                 {this.state.displayShow &&
-                    <div>
+                    <div className="Display-Info-Container">
                         {listUser.map((user) => {
                             return (
                                 <div key={user.id} className={user.age > 18 ? "green" : "red"}>
-                                    <div>My name's: {user.name}</div>
+                                    <div style={{ color: 'red', paddingTop: '50px' }}>My name's: {user.name}</div>
                                     <div>Age: {user.age}</div>
                                     <hr />
                                 </div>

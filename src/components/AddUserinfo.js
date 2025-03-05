@@ -33,7 +33,7 @@ class AddUserInfor extends React.Component {
             age: event.target.value
         })
     }
-
+    // lay du lieu tu input va truyen toi lop cha tu props handelAddNewUser
     handleOnSubmit = (event) => {
         event.preventDefault(); // nhan submit se khong load loai trang
         this.props.handelAddNewUser({
