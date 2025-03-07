@@ -8,6 +8,20 @@ class UserInfor extends React.Component {
     state = {
         displayShow: true
     }
+    // ham se chay bat dau tu contructor -> render -> componentDidMount
+    componentDidMount() {
+        console.log("call me component did mount:")
+        setTimeout(() => { document.title = "React with PhcHai" }, 3000);
+    }
+    // ham nay se duoc thuc hien khi co thay doi tren trang || qua khu cua prop hay state co gi
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        console.log("call me component did update:", this.props, prevProps);
+        if (this.props.listUser !== prevProps.listUser) { // nay la dieu kien thua de lai de hieu thoi :))
+            if (this.props.listUser.length === 5) { // neu du 5 users se thong bao
+                alert('you got 5 users')
+            }
+        }
+    }
     handleShowHide = () => {
         this.setState({
             displayShow: !this.state.displayShow
