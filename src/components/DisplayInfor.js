@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import './DisplayInfo.scss';
 import logo from '../logo.svg'; // import logo
 
@@ -62,9 +62,16 @@ import logo from '../logo.svg'; // import logo
 // chuyen doi tu class sang function nhung khong co state va khong can this. nua
 const UserInfor = (props) => {
     const { listUser } = props;
+    const [isShowHideListUsers, setShowHideListUser] = useState(true); // 2 thong so lan luot la State va setState
+
+    const handelShowHideListUser = () => {
+        setShowHideListUser(!isShowHideListUsers); // dieu kien nguoc lai
+    }
     return (
         <>
-            {true &&
+            <button onClick={() => { handelShowHideListUser() }}>{isShowHideListUsers == true ? 'Hide' : 'Show'} list users</button>
+
+            {isShowHideListUsers &&
                 <div className="Display-Info-Container">
                     <img src={logo} />
                     {listUser.map((user) => {
@@ -79,6 +86,7 @@ const UserInfor = (props) => {
                     })}
                 </div>
             }
+
         </>
 
     )
