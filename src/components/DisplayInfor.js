@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import './DisplayInfo.scss';
 import logo from '../logo.svg'; // import logo
 
@@ -67,6 +67,18 @@ const UserInfor = (props) => {
     const handelShowHideListUser = () => {
         setShowHideListUser(!isShowHideListUsers); // dieu kien nguoc lai
     }
+
+    // useEffect cung giong nhu componentDidMoun: contructor -> render -> useEffect || componentDidUpdate -> ,[] cuoi de chay 1 lan
+    // co the viet nhieu useEffect de theo doi nhieu doi tuong khac nhau
+    useEffect(
+        () => {
+            if (listUser.length === 0) {
+                alert('You delete all users')
+            }
+            console.log('>> call me userEffect')
+        }, [listUser]
+    );
+    console.log('>> call me render')
     return (
         <>
             <button onClick={() => { handelShowHideListUser() }}>{isShowHideListUsers == true ? 'Hide' : 'Show'} list users</button>
